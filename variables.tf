@@ -5,5 +5,6 @@ variable "openstack_login" {
     tenant_name = ""
     password    = ""
     auth_url    = ""
+    external_ip_pool = ""
   }
 }

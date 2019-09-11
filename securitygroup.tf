@@ -13,12 +13,14 @@ resource "openstack_networking_secgroup_rule_v2" "ssh" {
   remote_ip_prefix  = "0.0.0.0/0"
 }
 
-resource "openstack_networking_port_v2" "instanceport" {
-  network_id = "${openstack_networking_network_v2.network_1.id}"
-}
-resource "openstack_networking_port_secgroup_associate_v2" "sshport" {
-  port_id = "${openstack_networking_port_v2.instanceport.id}"
-  security_group_ids = [
-    "${openstack_networking_secgroup_v2.admin.id}",
-  ]
-}
+# resource "openstack_networking_port_v2" "instanceport" {
+#   network_id = "${openstack_networking_network_v2.network_1.id}"
+#   port_security_enabled = true
+#   name = "port_01"
+# }
+# resource "openstack_networking_port_secgroup_associate_v2" "sshport" {
+#   port_id = "${openstack_networking_port_v2.instanceport.id}"
+#   security_group_ids = [
+#     "${openstack_networking_secgroup_v2.admin.id}",
+#   ]
+# }
